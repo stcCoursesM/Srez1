@@ -15,11 +15,12 @@ public class NumberCounterThread implements Runnable{
             while (commonSwitch.isTurnedOn()){
                 System.out.println(commonSwitch.set);
                 if (commonSwitch.set.size()>=100) {
-                    commonSwitch.setIsTurnedOff();
                     System.out.println("Stopping!");
+                    commonSwitch.setIsTurnedOff();
                 }
 
                 try {
+                    commonSwitch.notify();
                     commonSwitch.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

@@ -23,6 +23,7 @@ public class RandomNumberThread implements Runnable{
                 try {
                     Thread.sleep(10);
                     if (y%50==0) {
+                        commonSwitch.notify();
                         commonSwitch.wait();
                     }
                 } catch (InterruptedException e) {

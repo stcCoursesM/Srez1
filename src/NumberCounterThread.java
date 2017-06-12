@@ -11,7 +11,7 @@ public class NumberCounterThread implements Runnable{
     public void run() {
         synchronized (commonSwitch) {
             commonSwitch.notify();
-            System.out.println(commonSwitch.isTurnedOn());
+            System.out.println(commonSwitch.set);
             while (commonSwitch.isTurnedOn()){
                 System.out.println(commonSwitch.set);
                 if (commonSwitch.set.size()>=100) {

@@ -16,11 +16,12 @@ public class RandomNumberThread implements Runnable{
             while (commonSwitch.isTurnedOn()) {
 
 
-                int i = ((int) (Math.random() * 10));
+                int i = ((int) (Math.random() * 100));
                 commonSwitch.set.add(i);
                 y++;
+                System.out.println(commonSwitch.set.size());
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(10);
                     if (y%50==0) {
                         commonSwitch.wait();
                     }

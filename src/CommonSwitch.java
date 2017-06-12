@@ -10,7 +10,7 @@ public class CommonSwitch {
     }
 
     Set<Integer> set = new HashSet<Integer>();
-    boolean isTurnedOn = true;
+    static boolean isTurnedOn = true;
 
     public boolean isTurnedOn() {
         return isTurnedOn;

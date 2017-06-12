@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class RandomNumberThread implements Runnable{
 
@@ -7,22 +6,24 @@ public class RandomNumberThread implements Runnable{
         this.commonSwitch = commonSwitch;
     }
 
-    Random rand;
     CommonSwitch commonSwitch;
 
     @Override
     public void run() {
         synchronized (commonSwitch) {
-
+            commonSwitch.notify();
+            int y = 0;
             while (commonSwitch.isTurnedOn()) {
+
 
                 int i = ((int) (Math.random() * 10));
                 commonSwitch.set.add(i);
-                //System.out.println(i);
-                System.out.println(commonSwitch.set);
-                System.out.println(commonSwitch.set.size());
+                y++;
                 try {
                     Thread.sleep(100);
+                    if (y%50==0) {
+                        commonSwitch.wait();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
